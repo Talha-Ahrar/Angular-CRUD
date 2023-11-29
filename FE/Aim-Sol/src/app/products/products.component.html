@@ -1,0 +1,35 @@
+
+<br>
+
+
+
+<div class="container">
+  <button class="btn btn-primary" (click)="addproduct()">
+ Add Product
+  </button>
+
+
+</div>
+
+<hr>
+
+<div class="container mt-4 border p-4">
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let product of products">
+      <div class="card h-100 shadow">
+        <img src="https://placekitten.com/200/150" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.ProductName }}</h5>
+          <p class="card-text">Price: {{ product.Price | currency }}</p>
+          <p class="card-text">Stock Quantity: {{ product.StockQuantity }}</p>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-warning" (click)="editProduct(product)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProduct(product)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

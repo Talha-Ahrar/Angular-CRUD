@@ -1,0 +1,41 @@
+<br>
+<br>
+
+
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Create Product</h5>
+      <form #productForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="productName">Product Name</label>
+          <input type="text" id="productName" class="form-control" [(ngModel)]="productName" name="productName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" id="price" class="form-control" [(ngModel)]="price" name="price" required>
+          <div *ngIf="productForm.controls['price'].invalid && (productForm.controls['price'].dirty || productForm.controls['price'].touched)"
+               class="text-danger">
+            Price is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="stockQuantity">Stock Quantity</label>
+          <input type="number" id="stockQuantity" class="form-control" [(ngModel)]="stockQuantity" name="stockQuantity" required>
+          <div *ngIf="productForm.controls['stockQuantity'].invalid && (productForm.controls['stockQuantity'].dirty || productForm.controls['stockQuantity'].touched)"
+               class="text-danger">
+            Stock Quantity is required.
+          </div>
+        </div>
+        <br>
+        <div class="button-container">
+          <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Submit</button>
+
+          <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
